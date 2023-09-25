@@ -40,14 +40,22 @@
 #             serializer.save()
 #             return Response(serializer.data, status=status.HTTP_201_CREATED)
 
-from rest_framework.generics import ListCreateAPIView
+from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
 from .models import Curso, Avaliacao
 from .serializers import CursoSerializer, AvaliacaoSerializer
 
-class CursoAPIView(ListCreateAPIView):
+class CursosAPIView(ListCreateAPIView):
     queryset = Curso.objects.all()
     serializer_class = CursoSerializer
     
-class AvaliacaoAPIView(ListCreateAPIView):
+class CursoAPIView(RetrieveUpdateDestroyAPIView):
+    queryset = Curso.objects.all()
+    serializer_class = CursoSerializer
+
+class AvaliacoesAPIView(ListCreateAPIView):
+    queryset = Avaliacao.objects.all()
+    serializer_class = AvaliacaoSerializer
+    
+class AvaliacaoAPIView(RetrieveUpdateDestroyAPIView):
     queryset = Avaliacao.objects.all()
     serializer_class = AvaliacaoSerializer
