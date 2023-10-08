@@ -8,6 +8,10 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework import status
 
+from rest_framework import permissions, authentication
+
+from .permissions import EhSuperUser
+
 
 """
 API V1
@@ -44,6 +48,11 @@ API V2
 """
 
 class CursoViewSet(viewsets.ModelViewSet):
+    permission_classes = (
+        EhSuperUser,
+        permissions.DjangoModelPermissions,
+    )
+    authentication_classes = (authentication.TokenAuthentication, )
     queryset = Curso.objects.all()
     serializer_class = CursoSerializer
 

@@ -9,7 +9,9 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 
-Token: 22688a589893e98b227cfcd891949ed9e98b4676
+Token - diegwl: 22688a589893e98b227cfcd891949ed9e98b4676
+
+Token - diego: 67b165e67222e373374f806bea978295397ddd19
 """
 
 from pathlib import Path
@@ -137,11 +139,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # DRF
 
 REST_FRAMEWORK = {
-    'AUTHENTICATION_CLASSES': (
+    'DEFAULT_AUTHENTICATION_CLASSES': (
         # 'rest_framework.authentication.SessionAuthentication'
         'rest_framework.authentication.TokenAuthentication',
     ),
-    'PERMISSION_CLASSES': (
+    'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticatedOrReadOnly',
     ),
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
